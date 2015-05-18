@@ -1,0 +1,29 @@
+<div class="project-header"> 
+	{{project.title}} 
+</div>
+<div class="col-md-12">
+	<form ng-submit="addTask()">
+		<table class="table">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Task</th>
+					<th>Priority</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="task in project.tasks | orderBy: ['status', '-priority']">
+					<td> <input type="checkbox" ng-model="task.status" ng-click="completeTask(task)"> </td>
+					<td> {{task.body}} </td>
+					<td> <span class="priority-circle priority-{{task.priority}}" ng-click="taskPriority(task)"></span> </td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td> <input type="text" ng-model="taskBody" class="task-input" placeholder="Enter task"> </td>
+					<td> <button class="btn btn-primary"> <i class="glyphicon glyphicon-plus"></i> </button> </td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</div>

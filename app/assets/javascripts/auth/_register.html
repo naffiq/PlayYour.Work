@@ -1,0 +1,33 @@
+<div class="gray-bg">
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<div class="panel panel-gap">
+				<div class="panel-heading">
+					<h1>Register</h1>
+				</div>
+				<div class="panel-body">
+					<form ng-submit="register()">
+						<div class="input-header"> Enter your email </div>
+						<input type="email" class="form-control" ng-model="user.email" placeholder="Email">
+
+						<div class="input-header"> Enter your name </div>
+						<input type="text" class="form-control" ng-model="user.username" placeholder="Name">
+
+						<div class="input-header"> Enter your password </div>
+						<input type="password" class="form-control" ng-model="user.password" placeholder="Password">
+
+						<hr>
+						<div class="text-right">
+							<div class="btn-group">
+								<button class="btn btn-primary">Register</button>
+								<a href="#/login" class="btn btn-default"> Log In </a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

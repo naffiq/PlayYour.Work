@@ -1,0 +1,49 @@
+<div id="right-menu" ng-controller="NavCtrl">
+	<div class="menu-heading">
+		<a href="#/home"> <img src="/assets/logo.png"> </a>
+	</div>
+
+	<div id="project-menu" ng-show="signedIn()">
+		<div class="projects-title">
+			Projects
+
+			<!-- <a href="#/create_project">
+				<div class="create-project pull-right">
+					<i class="glyphicon glyphicon-plus"></i>
+				</div>
+			</a> -->
+		</div>
+		<div class="projects">
+			<div ng-repeat="project in projects | orderBy: '-priority'">
+				<a href="#/projects/{{project.id}}">
+				<div class="project" >
+					<span class="priority-circle priority-{{project.priority}}" ng-click="changePriority(project)"></span>
+					{{project.title}}
+					<span ng-show="project.team" class="team-name"> {{teams[project.team].title}} </span>
+				</div>
+				</a>
+			</div>
+		</div>
+
+		<form ng-submit="addProject()" class="new-project-form">
+			<input ng-model="projectName" placeholder="Add project" type="text" class="form-control" />
+			<!-- <br /> -->
+			<!-- <button class="btn btn-primary">Add Project</button> -->
+		</form>
+	</div>
+
+	<div id="login-menu" ng-hide="signedIn()">
+		<a href="#/login" class="login">
+			<i class="glyphicon glyphicon-log-in"></i>
+		</a>
+		<a href="#/register" class="register">
+			<i class="glyphicon glyphicon-user"></i>
+		</a>
+	</div>
+
+	<div id="logout-menu" ng-show="signedIn()">
+		<a href="#" ng-click="logout()">
+			<i class="glyphicon glyphicon-log-out"></i>
+		</a>
+	</div>
+</div>

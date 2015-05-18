@@ -1,0 +1,207 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap/dist/css/bootstrap
+ *= require_tree .
+ *= require_self
+ */
+
+#right-menu {
+	position: fixed;
+	height: 100%;
+	color: #FFF;
+	background-color: #181818;
+	width: 200px;
+}
+#right-menu .menu-heading {
+	background-color: #181818;
+	width: 100%;
+	height: 80px;
+	text-align: center;
+}
+#right-menu .menu-heading img {
+	max-width: 80%;
+}
+
+#right-menu .projects-title {
+	background-color: #448ccb;
+	text-shadow: 0 1px 0 #000;
+	padding: 5px 10px;
+	font-size: 18px;
+	font-weight: lighter;
+}
+#right-menu .projects-title .create-project {
+	background-color: rgba(0, 0, 0, .3);
+	width: 35px;
+	height: 35px;
+	margin-top: -5px;
+	margin-right: -10px;
+	text-align: center;
+	line-height: 35px;
+	color: #FFF;
+}
+#right-menu .new-project-form { margin: 0 20px; }
+#right-menu .new-project-form input {
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #DDD;
+	outline: none;
+}
+#right-menu .projects .project {
+	padding: 10px 10px;
+}
+#right-menu .projects a {
+	color: #FFF;
+}
+#right-menu .projects a:hover {
+	text-decoration: none;
+}
+
+#right-menu .projects .project:hover {
+	background-color: #282828;
+}
+#right-menu .projects .project .team-name {
+	font-size: 12px;
+	color: #999;
+}
+
+#contents {
+	margin-left: 200px;
+	min-height: 100%;
+	position: relative;
+}
+.gray-bg {
+	background-color: #eee;
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+#contents .hero {
+	height: 300px;
+	background: url(/assets/hero-bg.jpg) no-repeat; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+#contents .hero .account-info {
+	background-color: rgba(0, 0, 0, .8);
+	padding: 20px;
+	margin-top: 50px;
+	color: #fff;
+	height: 190px;
+}
+#contents .hero .account-info h1 {
+	margin-top: 0;
+}
+#contents .hero .account-info img {
+	margin: 0 10px 0 0;
+	border-radius: 50%;
+}
+.btn, .form-control {
+	border-radius: 0;
+}
+
+.priority-circle {
+	display: inline-block;
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+	cursor: pointer;
+	margin-bottom: 1px;
+	margin-right: 8px;
+}
+.priority-circle.priority-1 { background-color: #448ccb; }
+.priority-circle.priority-2 { background-color: #00a651; }
+.priority-circle.priority-3 { background-color: #f26522; }
+.priority-circle.priority-4 { background-color: #ed1c24; }
+
+
+.project-header {
+	height: 80px;
+	background-color: #EEE;
+	border-bottom: 1px solid #DDD;
+	color: #777;
+	line-height: 80px;
+	padding: 0 10px;
+	font-size: 28px;
+}
+
+.task-input {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	outline: none;
+	height: 30px;
+}
+
+#login-menu, #logout-menu {
+	position: absolute; 
+	bottom: 0;
+	left: 0;
+	width: 200px;
+	background-color: #eee;
+	height: 40px;
+	line-height: 45px;
+	font-size: 0;
+}
+#login-menu a {
+	font-size: 18px;
+	display: inline-block;
+	width: 50%;
+	text-align: center;
+	color: #FFF;
+	text-shadow: 0 -1px 0 #000;
+	height: 40px;
+}
+
+#logout-menu a {
+	font-size: 18px;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	color: #FFF;
+	background-color: #ed1c24;
+	text-shadow: 0 -1px 0 #000;
+	height: 40px;
+}
+
+#login-menu a:hover, #logout-menu a:hover {
+	text-shadow: none;
+}
+#login-menu a.login {
+	background-color: #448ccb;
+}
+#login-menu a.register {
+	background-color: #00a651;
+}
+.panel-gap {
+	margin-top: 150px;
+}
+.panel-heading {
+	background-color: #448ccb;
+	color: #FFF;
+}
+.panel-heading * {
+	margin-top: 10px;
+	font-weight: lighter;
+	text-align: center;
+}
+.input-header {
+	font-weight: lighter;
+	color: #999;
+	text-align: center;
+	margin: 10px 0;
+}
