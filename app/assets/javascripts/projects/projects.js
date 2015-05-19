@@ -6,10 +6,9 @@ angular.module('odoru')
 		var o = {
 			projects: {}
 		};
-		o.getAll = function() {
+		o.getAll = function(wspace_id) {
 			deferred = $q.defer();
-
-			$http.get('/projects.json').success(function(data) {
+			$http.get('/wspaces/'+wspace_id+'/projects.json').success(function(data) {
 				deferred.resolve(data);
 				o.projects = data;
 			});

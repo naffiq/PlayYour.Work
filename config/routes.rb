@@ -6,6 +6,21 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'application#angular'
 
+  resources :wspaces, only: [:index, :show, :create] do
+    resources :projects, only: [:create, :index, :show] do
+      resources :tasks, only: [:show, :create] do
+        member do
+          put '/complete' => 'tasks#complete'
+          put '/priority' => 'tasks#priority'
+        end
+      end
+
+      member do
+        put '/priority' => 'projects#priority'
+      end
+    end
+  end
+
   resources :projects, only: [:create, :index, :show] do
     resources :tasks, only: [:show, :create] do
       member do
@@ -18,6 +33,7 @@ Rails.application.routes.draw do
       put '/priority' => 'projects#priority'
     end
   end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+  belongs_to :wspace
   has_many :tasks
 
   def as_json(options = {})

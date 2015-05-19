@@ -32,9 +32,5 @@ angular.module('odoru', ['ui.router', 'templates', 'Devise'])
 			});
 
 		$urlRouterProvider.otherwise('home');
-
-		// if (!Auth.isAuthenticated) {
-		// 	$stateProvider.go('login')
-		// };
 	}
 ]);

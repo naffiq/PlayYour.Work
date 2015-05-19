@@ -21,6 +21,86 @@
 	color: #FFF;
 	background-color: #181818;
 	width: 200px;
+	z-index: 8;
+}
+#submenu {
+	width: 200px;
+	position: fixed;
+	border-right: 1px solid #888;
+	box-shadow: 0 0 5px #000;
+	z-index: 4;
+	height: 100%;
+	background-color: #EEE;
+	left: 0px;
+	top: 0;
+}
+#submenu .new-wspace-form {
+	border-top: 1px solid #666;
+	padding: 10px 0;
+	background-color: #282828;
+	border-bottom: 1px solid #666;
+}
+#submenu .new-wspace-form input {
+	background: transparent;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	color: #FFF;
+}
+#submenu.submenu-show {
+	left: 200px;
+	-webkit-animation: submenu-animation-show .3s;
+	animation: submenu-animation-show .3s;
+}
+@keyframes submenu-animation-show {
+    from {left: 0;}
+    to {left: 200px;}
+}
+@-webkit-keyframes submenu-animation-show {
+    from {left: 0;}
+    to {left: 200px;}
+}
+
+#submenu.submenu-hide {
+	left: 0;
+	-webkit-animation: submenu-animation-hide .3s;
+	animation: submenu-animation-hide .3s;
+}
+@keyframes submenu-animation-hide {
+    from {left: 200px;}
+    to {left: 0px;}
+}
+@-webkit-keyframes submenu-animation-hide {
+    from {left: 200px;}
+    to {left: 0px;}
+}
+
+#submenu .submenu-heading {
+	background-color: rgba(0, 0, 0, .6);
+	border-bottom: 1px solid #333;
+	width: 100%;
+	height: 40px;
+	color: #FFF;
+	text-shadow: 0 1px 0 #000;
+	text-align: center;
+	font-weight: lighter;
+	line-height: 40px;
+}
+#submenu .elements {
+	margin-bottom: 20px;
+}
+#submenu .submenu-element {
+	position: relative;
+}
+#submenu .submenu-element a {
+	padding: 10px 10px;
+	display: block;
+	color: #333;
+}
+#submenu .submenu-element a:hover {
+	text-decoration: none;
+	background-color: #448ccb;
+	color: #FFF;
 }
 #right-menu .menu-heading {
 	background-color: #181818;
@@ -55,6 +135,7 @@
 	border: none;
 	border-bottom: 1px solid #DDD;
 	outline: none;
+	box-shadow: none;
 }
 #right-menu .projects .project {
 	padding: 10px 10px;
