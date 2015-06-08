@@ -33,6 +33,12 @@ gem 'angular_rails_csrf'
 
 gem 'devise', '~> 3.4.0'
 
+# Bootstrap gems
+gem "therubyracer"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
