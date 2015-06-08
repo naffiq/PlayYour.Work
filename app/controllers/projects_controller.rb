@@ -5,7 +5,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    respond_with Project.create(project_params.merge(wspace_id: current_user.wspace_id))
+    wspace = Wspace.find(params[:wspace_id])
+    respond_with wspace.projects.create(project_params)
   end
 
   def show
@@ -21,6 +22,16 @@ class ProjectsController < ApplicationController
     project.save!
 
     respond_with project
+  end
+
+  def change
+    wspace = current_user.wspaces.find(params[:id])
+    if !wspace.nil?
+      current_user.wspace_id = wspace
+      current_user.save!
+    end
+
+    respond_with current_user.wspace
   end
 
   private

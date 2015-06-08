@@ -20,7 +20,23 @@
 
 				<tr>
 					<td></td>
-					<td> <input type="text" ng-model="taskBody" class="task-input" placeholder="Enter task"> </td>
+					<td> 
+						
+						<input type="text" ng-model="taskBody" class="task-input pull-left" placeholder="Enter task">
+						<div class="well">
+							<div class="row">
+								<div class="col-md-4 col-xs-6">
+									<select class="form-control" ng-model="taskAsignee">
+										<option>Any user</option>
+									</select>
+								</div>	
+
+								<div class="col-md-4 col-xs-6">
+									<input type="text" ng-model="taskReward" class="form-control" placeholder="XP reward">
+								</div>
+							</div> 
+						</div>
+					</td>
 					<td> <button class="btn btn-primary"> <i class="glyphicon glyphicon-plus"></i> </button> </td>
 				</tr>
 			</tbody>

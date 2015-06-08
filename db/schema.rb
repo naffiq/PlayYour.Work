@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519051503) do
+ActiveRecord::Schema.define(version: 20150520194232) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
@@ -27,9 +27,13 @@ ActiveRecord::Schema.define(version: 20150519051503) do
     t.string   "body"
     t.integer  "priority"
     t.integer  "project_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "status",     default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "status",       default: false
+    t.integer  "author_id"
+    t.integer  "executant_id"
+    t.integer  "xp"
+    t.date     "deadline"
   end
 
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id"
@@ -55,6 +59,16 @@ ActiveRecord::Schema.define(version: 20150519051503) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["username"], name: "index_users_on_username", unique: true
   add_index "users", ["wspace_id"], name: "index_users_on_wspace_id"
+
+  create_table "wgroupings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "wspace_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "wgroupings", ["user_id"], name: "index_wgroupings_on_user_id"
+  add_index "wgroupings", ["wspace_id"], name: "index_wgroupings_on_wspace_id"
 
   create_table "wspaces", force: :cascade do |t|
     t.string   "title"

@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 
   def create
   	project = Project.find(params[:project_id])
-  	task = project.tasks.create(task_params)
+  	task = current_user.tasks.create(task_params.merge(project_id: params[:project_id]))
   	respond_with project, task
   end
 

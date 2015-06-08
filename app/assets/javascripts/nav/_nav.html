@@ -11,9 +11,13 @@
 		<div class="elements">
 			<div ng-repeat="wspace in wspaces">
 				<div class="submenu-element">
-					<a href="" ng-click="selectWspace(wspace.id)">
+					<a class="wspace-open" href="#/wspaces/{{wspace.id}}" ng-show="wspace.user_id == user.id" ng-click="showMenu()">
+						<i class="glyphicon glyphicon-wrench"></i>
+					</a>
+					<a href="" class="wspace-change" ng-click="changeWspace(wspace.id)">
 						{{wspace.title}}
 					</a>
+
 				</div>
 			</div>
 		</div>
@@ -51,6 +55,22 @@
 				<!-- <br /> -->
 				<!-- <button class="btn btn-primary">Add Project</button> -->
 			</form>
+		</div>
+
+		<div class="wspace-users" ng-show="signedIn()">
+			<div class="users-head">Workspace users</div>
+
+			<div ng-repeat="user in curWspace.users | limitTo: 3" class="user">
+				<a href="">
+					<img class="user-image" src="http://www.gravatar.com/avatar/{{md5(user.email)}}">
+					<div class="user-name">
+						{{user.username}}
+						<div class="user-email">
+							{{user.email}}
+						</div>
+					</div>
+				</a>
+			</div>
 		</div>
 
 		<div id="login-menu" ng-hide="signedIn()">

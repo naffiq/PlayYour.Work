@@ -2,7 +2,7 @@ angular.module('odoru')
 .factory('wspaces', [
 	'$http',
 	'$q',
-	function($http, $q) {
+	function($http, $q, socket) {
 		var o = {
 			wspaces: {}
 		};
@@ -25,16 +25,9 @@ angular.module('odoru')
 			return deferred.promise;
 		};
 
-		// o.priority = function(project) {
-		// 	deferred = $q.defer();
-		// 	$http.put('/projects/' + project.id + '/priority.json')
-		// 		.success(function(data) {
-		// 			if (project.priority >= 4) { project.priority = 0;};
-		// 			project.priority += 1;
-		// 			deferred.resolve(data);
-		// 		});
-		// 	return deferred.promise;
-		// };
+		o.inviteUser = function(wspace, email) {
+			return $http.put('/wspaces/' + wspace.id + '/invite.json', {email: email});
+		};
 
 		o.get = function(id) {
 			return $http.get('/wspaces/' + id + '.json').then(function(res) {

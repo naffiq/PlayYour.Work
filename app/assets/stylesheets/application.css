@@ -15,7 +15,13 @@
  *= require_self
  */
 
+html * {
+	font-family: 'Open Sans';
+}
+
 #right-menu {
+	top: 0;
+	left: 0;
 	position: fixed;
 	height: 100%;
 	color: #FFF;
@@ -93,9 +99,22 @@
 	position: relative;
 }
 #submenu .submenu-element a {
-	padding: 10px 10px;
+	height: 30px;
+	line-height: 30px;
+}
+#submenu .submenu-element a.wspace-open {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 30px;
+	text-align: center;
+	background-color: rgba(0, 0, 0, .1);
+	color: #000;
+}
+#submenu .submenu-element a.wspace-change {
 	display: block;
 	color: #333;
+	padding: 0 10px;
 }
 #submenu .submenu-element a:hover {
 	text-decoration: none;
@@ -118,16 +137,19 @@
 	padding: 5px 10px;
 	font-size: 18px;
 	font-weight: lighter;
+	position: relative;
+	height: 35px;
 }
 #right-menu .projects-title .create-project {
+	position: absolute;
 	background-color: rgba(0, 0, 0, .3);
 	width: 35px;
 	height: 35px;
-	margin-top: -5px;
-	margin-right: -10px;
 	text-align: center;
 	line-height: 35px;
 	color: #FFF;
+	top: 0;
+	right: 0;
 }
 #right-menu .new-project-form { margin: 0 20px; }
 #right-menu .new-project-form input {
@@ -153,6 +175,51 @@
 #right-menu .projects .project .team-name {
 	font-size: 12px;
 	color: #999;
+}
+
+.wspace-users .users-head {
+	margin: 20px 0;
+	padding: 0 10px;
+	font-weight: 200;
+}
+.wspace-users .user {
+	margin: 0 10px;
+	margin-bottom: 20px;
+}
+.wspace-users .user a:hover {
+	text-decoration: none;
+}
+.wspace-users .user .user-image{
+	float: left;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+.wspace-users .remove-user {
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	color: #FFF;
+	float: right;
+	background-color: #ed1c24;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+	margin-top: 5px;
+}
+.wspace-users .user .user-name{
+	margin-left: 60px;
+	color: #FFF;
+	font-size: 18px;
+}
+.wspace-users .user .user-name.user-name-black{
+	color: #111;
+}
+.wspace-users .user .user-email{
+	font-size: 12px;
+	font-weight: 200;
+	color: #777;
 }
 
 #contents {
@@ -226,6 +293,7 @@
 	border-bottom: 1px solid #ddd;
 	outline: none;
 	height: 30px;
+	margin-bottom: 15px;
 }
 
 #login-menu, #logout-menu {
@@ -259,6 +327,15 @@
 	height: 40px;
 }
 
+.custom-header {
+	line-height: 80px;
+	height: 80px;
+	background-color: #fff;
+	margin-bottom: 30px;
+	border-bottom: #DDD;
+	box-shadow: 0 0 3px #ddd;
+}
+
 #login-menu a:hover, #logout-menu a:hover {
 	text-shadow: none;
 }
@@ -285,4 +362,24 @@
 	color: #999;
 	text-align: center;
 	margin: 10px 0;
+}
+
+
+form.add-user {
+	background-color: #282828;
+	color: #FFF;
+	padding: 15px;
+	margin: -16px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	margin-top: 20px;
+}
+form.add-user input {
+	margin-top: 5px;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid #FFF;
+	color: #fff;
+	outline: none;
+	box-shadow: none;
 }

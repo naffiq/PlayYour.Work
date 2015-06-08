@@ -19,6 +19,17 @@ Rails.application.routes.draw do
         put '/priority' => 'projects#priority'
       end
     end
+
+    resources :users, only: [:show] do
+      member do
+        put '/remove' => 'wspaces#remove'
+      end
+    end
+    
+    member do
+      put '/invite' => 'wspaces#invite'
+      put '/change' => 'wspaces#change'
+    end
   end
 
   resources :projects, only: [:create, :index, :show] do

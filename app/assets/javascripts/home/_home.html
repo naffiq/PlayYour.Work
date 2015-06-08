@@ -5,8 +5,8 @@
 			<div class="col-md-6 col-sm-12">
 
 				<div class="account-info">
-					<img class="pull-left" src="http://www.gravatar.com/avatar/0217df290e6f29cbe204479f48fb662f?s=150">
-					<h1>Galymzhan Abdugalimov</h1>
+					<img class="pull-left" src="http://www.gravatar.com/avatar/{{md5(user.email)}}?s=150">
+					<h1>{{user.username}}</h1>
 					<p><strong>Level:</strong> Beginner Programmer</p>
 					<div class="progress">
 						<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">

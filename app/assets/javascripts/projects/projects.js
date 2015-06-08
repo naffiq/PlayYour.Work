@@ -6,6 +6,7 @@ angular.module('odoru')
 		var o = {
 			projects: {}
 		};
+
 		o.getAll = function(wspace_id) {
 			deferred = $q.defer();
 			$http.get('/wspaces/'+wspace_id+'/projects.json').success(function(data) {
@@ -16,11 +17,10 @@ angular.module('odoru')
 			return deferred.promise;
 		};
 
-		o.create = function(project) {
+		o.create = function(wspace_id, project) {
 			deferred = $q.defer();
-			$http.post('/projects.json', project).success(function(data) {
-				o.projects.push(data);
-				deferred.resolve(o.projects);
+			$http.post('/wspaces/' + wspace_id + '/projects.json', project).success(function(data) {
+				deferred.resolve(data);
 			});
 			return deferred.promise;
 		};
@@ -29,7 +29,7 @@ angular.module('odoru')
 			deferred = $q.defer();
 			$http.put('/projects/' + project.id + '/priority.json')
 				.success(function(data) {
-					if (project.priority >= 4) { project.priority = 0;};
+					if (project.priority >= 4) { project.priority = 0; };
 					project.priority += 1;
 					deferred.resolve(data);
 				});
@@ -40,6 +40,14 @@ angular.module('odoru')
 			return $http.get('/projects/' + id + '.json').then(function(res) {
 				return res.data;
 			});
+		};
+
+		o.getAsync = function(id) {
+			deferred = $q.defer();
+			$http.get('/projects/' + id + '.json').success(function(res) {
+				deferred.resolve(res);
+			});
+			return deferred.promise;
 		};
 
 		o.addTask = function(id, task) {

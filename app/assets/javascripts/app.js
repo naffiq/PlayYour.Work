@@ -29,6 +29,16 @@ angular.module('odoru', ['ui.router', 'templates', 'Devise'])
 				url: '/register',
 				templateUrl: 'auth/_register.html',
 				controller: 'AuthCtrl'
+			})
+			.state('wspaces', {
+				url: '/wspaces/{id}',
+				templateUrl: 'wspaces/_wspaces.html',
+				controller: 'WspacesCtrl',
+				resolve: {
+					wspace: ['$stateParams', 'wspaces', function($stateParams, wspaces) {
+						return wspaces.get($stateParams.id)
+					}]
+				}
 			});
 
 		$urlRouterProvider.otherwise('home');
